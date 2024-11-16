@@ -46,8 +46,6 @@ Una oferta se entiende como el conjunto de opciones o variantes del préstamo. P
 
 Debes proponer los esquemas de la base de datos para el sistema. Puedes usar SQLite y subir el archivo de la base de datos en tu entrega. Asegúrate de que tu esquema pueda manejar las funcionalidades requeridas de manera efectiva.
 
-### Para informacion sobre la base de datos pueden revisar el documento ERD.md
-
 ### Usuarios
 
 Debes crear dos tipos de usuarios:
