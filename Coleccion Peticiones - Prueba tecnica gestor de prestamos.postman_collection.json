@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "9c7b2efe-7bfe-47dc-aaf7-57711da49b72",
+		"name": "Coleccion Peticiones - Prueba tecnica gestor de prestamos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23112834"
+	},
+	"item": [
+		{
+			"name": "1. Crear Usuarios (admin)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Randy\",\r\n    \"rol\": \"admin\",\r\n    \"email\": \"randy@gmail.com\",\r\n    \"password\": \"randy1234\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Usuarios (client)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Andres\",\r\n    \"rol\": \"client\",\r\n    \"email\": \"andres@gmail.com\",\r\n    \"password\": \"andres1234\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autenticar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"randy@gmail.com\",\r\n  \"password\": \"randy1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cerrar Sesion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Crear ofertas para un usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 1000,\r\n  \"term\": 3,\r\n  \"interest_rate\": 0.1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/usuarios/673ea23bc5d52967db6e471e/ofertas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"usuarios",
+						"673ea23bc5d52967db6e471e",
+						"ofertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Crear un prestamo basado en una oferta seleccionada",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"offerid\": \"673ea348c3487492574184b7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/usuarios/673ea23bc5d52967db6e471e/prestamos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"usuarios",
+						"673ea23bc5d52967db6e471e",
+						"prestamos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Aplicar pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount_paid\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/prestamos/673ea55fb21d27be5973a13c/pagos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"prestamos",
+						"673ea55fb21d27be5973a13c",
+						"pagos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Revertir pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/pagos/673ea55fb21d27be5973a13e/revertir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"pagos",
+						"673ea55fb21d27be5973a13e",
+						"revertir"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
